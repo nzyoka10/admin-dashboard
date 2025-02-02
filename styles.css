@@ -3,7 +3,7 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #daeff4;
+    background-color: #e7edf5; /* Light background to match the modern dashboard style */
 }
 
 /* Main Grid Layout */
@@ -15,21 +15,30 @@ body {
         "sidebar header"
         "sidebar main";
     height: 100vh;
+    gap: 20px; /* Adds gap between sections */
 }
 
 /* Sidebar */
 .sidebar {
     grid-area: sidebar;
-    background-color: #5b9cff;
-    color: white;
+    background-color: #293e52; /* Darker sidebar background */
+    color: #ecf0f1; /* Lighter text */
     display: flex;
     flex-direction: column;
     padding: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Adds shadow to the sidebar */
 }
 
 .branding {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.branding h2 {
+    font-size: 24px;
+    color: #ecf0f1;
+    margin: 0;
+    padding: 0;
 }
 
 .nav ul {
@@ -38,36 +47,44 @@ body {
 }
 
 .nav ul li {
-    margin: 15px 0;
+    margin: 12px 0;
 }
 
 .nav ul li a {
-    color: white;
+    color: #ecf0f1;
     text-decoration: none;
     font-size: 16px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 4px;
     transition: background 0.3s;
 }
 
 .nav ul li a:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: #34495ecf; /* Darker hover color */
 }
 
 /* Header */
 .header {
     grid-area: header;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Slight shadow to lift the header */
+    display: flex;
+    flex-direction: column;
+    padding: 15px 20px;
+}
+
+/* Top Header - Search Bar and User Info */
+.top-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    margin-bottom: 20px;
 }
 
+/* Search Bar */
 .search-bar {
     display: flex;
     align-items: center;
@@ -75,15 +92,18 @@ body {
 }
 
 .search-bar input {
-    padding: 8px;
-    border-radius: 4px;
+    padding: 10px;
+    border-radius: 20px;
     border: 1px solid #ccc;
+    width: 250px;
+    font-size: 16px;
 }
 
+/* User Info */
 .user-info {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
 
 .user-info img {
@@ -95,7 +115,8 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 20px;
+    color: #2c3e50;
     transition: transform 0.2s ease-in-out;
 }
 
@@ -103,54 +124,51 @@ body {
     transform: scale(1.1);
 }
 
-/* Main Content */
-.main-content {
-    grid-area: main;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 20px;
-    padding: 20px;
+/* Bottom Header - Greeting and Buttons */
+.bottom-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Projects */
-.projects {
-    grid-column: span 2;
+.greet h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #2c3e50;
 }
 
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+.actions {
+    display: flex;
     gap: 15px;
 }
 
-.project-card {
-    background-color: white;
-    padding: 20px;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
+.actions .btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
 }
 
-.project-card:hover {
-    transform: translateY(-5px);
+.btn-new {
+    background-color: #3498db;
+    color: white;
 }
 
-/* Announcements & Trending */
-.announcements, .trending {
-    background-color: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+.btn-upload {
+    background-color: #2ecc71;
+    color: white;
 }
 
-.announcements ul, .trending ul {
-    list-style: none;
-    padding: 0;
+.btn-share {
+    background-color: #f39c12;
+    color: white;
 }
 
-.announcements ul li, .trending ul li {
-    margin-bottom: 10px;
+.btn:hover {
+    opacity: 0.8;
 }
 
 /* Responsive Design */
@@ -167,7 +185,7 @@ body {
     .sidebar {
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-between;
         padding: 10px;
     }
 
@@ -180,4 +198,54 @@ body {
     .main-content {
         grid-template-columns: 1fr;
     }
+}
+
+/* Main Content */
+.main-content {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    padding: 30px;
+}
+
+/* Projects */
+.projects {
+    grid-column: span 2;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Announcements & Trending */
+.announcements, .trending {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.announcements ul, .trending ul {
+    list-style: none;
+    padding: 0;
+}
+
+.announcements ul li, .trending ul li {
+    margin-bottom: 10px;
 }

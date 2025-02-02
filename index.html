@@ -3,15 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic Layout</title>
+    <title>Admin Dashboard</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Material Design Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css">
+    
+    <!-- FontAwesome (if you need it) -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
-        <header class="header">Header</header>
-        <aside class="sidebar">Sidebar</aside>
-        <main class="main-content">Main Content</main>
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="branding">
+                
+                <h2>
+                    <span class="mdi mdi-view-dashboard"></span>
+                    Dashboard
+                </h2>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#"><span class="mdi mdi-home"></span> Home</a></li>
+                    <li><a href="#"><span class="mdi mdi-briefcase"></span> Projects</a></li>
+                    <li><a href="#"><span class="mdi mdi-message-badge"></span> Announcements</a></li>
+                    <li><a href="#"><span class="mdi mdi-trending-up"></span> Trending</a></li>
+                    <li><a href="#"><span class="mdi mdi-cog"></span> Settings</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Header -->
+        <header class="header">
+           
+            <!-- ToDo: Update this is the first row with search bar, notification and avater -->
+                <div class="search-bar">
+                    <span class="mdi mdi-magnify"></span>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="user-info">
+                    <button class="btn btn-sm icon-btn"><span class="mdi mdi-bell-ring"></span></button>
+                    <button class="btn btn-sm icon-btn"><i class="fas fa-cog"></i></button>
+                    <img src="img/avater.avif" alt="User Avatar">
+                    <span>Nzyoka</span>
+                </div>
+            
+            <!-- ToDo: Update second row below first row  -->
+            <!-- Greet message to logged user (to Left side) and THREE buttons (New, Upload and Share) to the right side  -->
+            <div class="greet">
+                <h3>Welcome back, Nzyoka!</h3>
+            </div>
+            <div class="actions">
+                <button class="btn btn-primary">New</button>
+                <button class="btn btn-secondary">Upload</button>
+                <button class="btn btn-secondary">Share</button>
+            </div>
+                                    
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="projects">
+                <h2>Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3>Project 1</h3>
+                        <p>Project description goes here.</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>Project 2</h3>
+                        <p>Another project description.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="announcements">
+                <h2>Announcements</h2>
+                <ul>
+                    <li>📢 New feature update coming soon!</li>
+                    <li>🔧 System maintenance on Sunday.</li>
+                    <li>🎉 Welcome our new team member!</li>
+                </ul>
+            </section>
+
+            <section class="trending">
+                <h2>Trending</h2>
+                <ul>
+                    <li>@User1 completed Task A</li>
+                    <li>@User2 started Project X</li>
+                    <li>@User3 shared a new article</li>
+                </ul>
+            </section>
+        </main>
     </div>
 </body>
 </html>
-

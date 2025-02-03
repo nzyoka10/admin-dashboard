@@ -17,7 +17,7 @@ body {
 /* font for all headings */
 h1, h2, h3, h4, h5, h6 {
     font-family: "Bebas Neue", serif;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 2px;
 }
 
@@ -152,17 +152,53 @@ h1, h2, h3, h4, h5, h6 {
     color: #2f3b48;
 }
 
+/* General Button Styling */
 .icon-btn {
-    background: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
     border: none;
+    background: transparent;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 50px;
     cursor: pointer;
-    font-size: 20px;
-    color: #2c3e50;
-    transition: transform 0.2s ease-in-out;
+    transition: all 0.3s ease-in;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .icon-btn:hover {
-    transform: scale(1.1);
+    background: #2f3b48;
+    color: #fff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Like Button */
+.icon-btn .mdi-heart-outline {
+    color: #e74c3c;
+}
+
+/* View Button */
+.icon-btn .mdi-eye {
+    color: #3498db;
+}
+
+/* Share Button */
+.icon-btn .mdi-share-variant {
+    color: #27ae60;
+}
+
+.icon-btn .mdi-bell-ring {
+    color: #1c1236;
+}
+.icon-btn .mdi-bell-ring:hover {
+    color: #fbf9ff;
+}
+
+.icon-btn .mdi-cloud-upload{
+    color: #d25f00;
 }
 
 /* Main Content */
@@ -296,43 +332,7 @@ h1, h2, h3, h4, h5, h6 {
     border-top: 2px solid #2c3e50;
 }
 
-/* General Button Styling */
-.icon-btn {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    border: none;
-    background: transparent;
-    color: #333;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 8px 14px;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease-in;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
 
-.icon-btn:hover {
-    background: #2f3b48;
-    color: #fff;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Like Button */
-.icon-btn .mdi-heart-outline {
-    color: #e74c3c;
-}
-
-/* View Button */
-.icon-btn .mdi-eye {
-    color: #3498db;
-}
-
-/* Share Button */
-.icon-btn .mdi-share-variant {
-    color: #27ae60;
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -352,22 +352,98 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-/* Announcements & Trending Sections */
-.announcements, .trending {
+/* Announcements Section */
+.announcements {
+    grid-column: span 1;
+    padding: 12px 0;
+}
+.announcements h2 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+.announcements p {
+    font-size: 16px;
+    color: #7f8c8d;
+    margin-bottom: 15px;
+}
+.announcements ul {
+    list-style: none;
+    padding: 0;
+}
+.announcements li {
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    margin-bottom: 10px;
+    }
+.announcements li h4 {
+    font-size: 18px;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+.announcements li p {
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+/* Trending Section */
+.trending {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    margin-top: 6px; /* Reduced top margin */
+    margin-top: 6px;
 }
 
-.announcements ul, .trending ul {
+.trending h2 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.trending ul {
     list-style: none;
     padding: 0;
 }
 
-.announcements ul li, .trending ul li {
-    margin-bottom: 10px;
+.trending ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.trending ul li:hover {
+    background-color: #f0f0f0;
+}
+
+.trending ul li h4 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+}
+
+.trending ul li h4 img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.trending ul li .uname {
+    font-weight: 600;
+    color: #34495e;
+}
+
+.trending ul li p {
+    font-size: 14px;
+    color: #7f8c8d;
 }
 
 /* Responsive Design for Smaller Screens */

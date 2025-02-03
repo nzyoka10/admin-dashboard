@@ -206,28 +206,133 @@ h1, h2, h3, h4, h5, h6 {
     grid-area: main;
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 24px;
+    gap: 20px;
     padding: 30px;
 }
 
-/* Projects Section */
-.projects h3 {
-    font-size: 22px;
-    color: #2c3e50;
-    margin-bottom: 12px;
-    font-weight: 600;
+/* Calendar Section */
+.calender {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
 }
 
+.calender h3 {
+    font-size: 22px;  /* Further reduced font size */
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.calender h3 small {
+    font-size: 12px;  /* Reduced small text font size */
+    color: #7f8c8d;
+}
+
+.calender-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));  /* Even smaller cards */
+    gap: 8px;
+}
+
+.calender-card {
+    background-color: #f4f7fb;
+    border-radius: 8px;
+    padding: 8px;  /* Further reduced padding */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease-in-out;
+    height: 160px;  /* Reduced height */
+}
+
+.calender-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.calender-date {
+    text-align: center;
+    background-color: #2f3b48d5;
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 4px 6px;  /* Smaller padding */
+    font-size: 14px;  /* Reduced font size */
+}
+
+.calender-date span:first-child {
+    font-size: 20px;  /* Reduced font size for the day */
+    font-weight: bold;
+}
+
+.calender-event {
+    margin-top: 8px;  /* Slightly reduced space */
+    text-align: center;
+}
+
+.calender-event h4 {
+    font-size: 14px;  /* Smaller font size for event title */
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.calender-event p {
+    font-size: 12px;  /* Smaller font size for event description */
+    color: #7f8c8d;
+    margin-top: 4px;  /* Reduced margin */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;  /* Truncate long descriptions */
+}
+
+/* Optional: Add bookmark button styling */
+.bookmark-toggle {
+    margin-top: 10px;
+    padding: 4px 6px;  /* Smaller button size */
+    border: none;
+    background-color: #2c3e50;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 10px;  /* Smaller font size for the button */
+}
+
+.bookmark-toggle:hover {
+    border: 2px solid #2c3e50;
+    background-color: #fff;
+    color: #2c3e50;
+
+}
+
+
+/* Projects Section */
+.projects h3 {
+    font-size: 26px;
+    color: #2c3e50;
+    margin-bottom: 16px;
+    font-weight: 600;
+    /* text-align: center; */
+}
+
+/* Projects Container */
 .projects {
     grid-column: span 1;
-    padding: 12px 0;
+    padding: 16px 0;
+    background-color: #f4f7fb; /* Light background for better contrast */
+    border-radius: 8px;
 }
 
 /* Project Grid */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 18px;
+    margin-top: 20px;
 }
 
 /* Project Card Style */
@@ -235,14 +340,14 @@ h1, h2, h3, h4, h5, h6 {
     background: #ffffff;
     padding: 20px;
     text-align: center;
-    border-radius: 5px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    border-left: 10px solid #2f3b48cf; /* Stylish Left Border */
+    border-left: 12px solid #2f3b48cf; /* Stylish Left Border */
     position: relative;
     overflow: hidden;
 }
@@ -250,8 +355,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Project Card Hover Effects */
 .project-card:hover {
     cursor: pointer;
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 /* Project Info (Overlay on Hover) */
@@ -261,8 +366,8 @@ h1, h2, h3, h4, h5, h6 {
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
-    background: rgba(47, 59, 72, 0.659);
-    padding: 20px;
+    background: rgba(47, 59, 72, 0.75);
+    padding: 25px;
     text-align: center;
     width: 100%;
     opacity: 0;
@@ -271,65 +376,76 @@ h1, h2, h3, h4, h5, h6 {
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
+/* Project Info Title */
 .project-info h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 22px;
+    margin-bottom: 12px;
     font-weight: 600;
 }
 
+/* Project Info Text */
 .project-info p {
-    font-size: 14px;
+    font-size: 16px;
+    margin-bottom: 20px;
 }
 
 /* Display Project Info on Hover */
 .project-card:hover .project-info {
     opacity: 1;
     visibility: visible;
-    transform: translate(-50%, -50%) scale(1.05);
-}
-
-.project-card:hover .project-image img {
-    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1.1);
 }
 
 /* Project Image */
 .project-image img {
     width: 100%;
     height: auto;
-    border-radius: 0px;
+    border-radius: 8px;
     object-fit: cover;
-
-    /* Stylish Overlay */
-    position: relative;
-    overflow: hidden;
     transition: opacity 0.3s ease-in-out;
-    
 }
 
-/* Project Text */
+/* Darken Project Image on Hover */
+.project-card:hover .project-image img {
+    opacity: 0.5;
+}
+
+/* Project Title */
 .project-card h3 {
     font-family: "Bebas Neue", serif;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 600;
-    color: #fcfcfc;
-    margin-top: 10px;
+    color: #333;
+    margin-top: 15px;
 }
 
+/* Project Description */
 .project-card p {
-    font-size: 14px;
-    text-align: start;
-    color: #e5eff0;
-    margin: 8px 0;
+    font-size: 16px;
+    text-align: center;
+    color: #555;
+    margin: 10px 0;
 }
 
-/* Project Actions */
+/* Project Actions (Icons or Buttons) */
 .project-actions {
     display: flex;
     justify-content: space-between;
-    align-items: start;
+    align-items: center;
     margin-top: 15px;
-    padding-top: 12px;
-    border-top: 2px solid #2c3e50;
+    padding-top: 15px;
+    border-top: 2px solid #e1e1e1;
+}
+
+.project-actions a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #2c3e50;
+    transition: color 0.3s ease;
+}
+
+.project-actions a:hover {
+    color: #3498db;
 }
 
 

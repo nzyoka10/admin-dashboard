@@ -64,16 +64,30 @@
 
       <!-- Main Content -->
       <main class="main-content">
-        <!-- Projects Section -->
-        <section class="projects">
-          <h3>My Projects</h3>
-          <div class="project-grid" id="projects-grid">
-            <!-- Project Cards will be injected here via JavaScript -->
-          </div>
+
+        <section class="row" id="projects-calender">
+
+            <!-- Calender Section -->
+            <section class="calender">
+                <h3>My Calendar - <small>Events & Activites</small></h3>
+                <div class="calender-grid" id="calender-grid">
+                    <!-- Calendar Cards will be injected here -->
+                </div>
+            </section>
+
+            
+            <!-- Projects Section -->
+            <section class="projects">
+                <h3>My Projects - <small>Apps & Websites</small></h3>
+                <div class="project-grid" id="projects-grid">
+                <!-- Project Cards will be injected here via JavaScript -->
+                </div>
+            </section>
+
         </section>
 
         <!-- Announcements and Trending Sections -->
-        <section class="row" id="project-announcements-row">
+        <section class="row" id="announcements-trending">
             
             <!-- Announcements Section -->
             <section class="announcements">
@@ -96,57 +110,139 @@
             </section>
         
             <!-- Trending Section -->
-<section class="trending">
-    <h2>Trending</h2>
-    <ul>
-        <!-- Trending List Item 1 -->
-        <li>
-            
-            <h4>
-                <img src="img/person-3.jpg" alt="Person 1" aria-label="Person 1" />
-                <span class="uname">Moha</span>
-            </h4>
-            <p>Completed Task A</p>
-        </li>
-        
-        <!-- Trending List Item 2 -->
-        <li>
-            
-            <h4>
-                <img src="img/person-1.avif" alt="Person 2" aria-label="Person 2" />
-                <span class="uname">Jude</span>
-            </h4>
-            <p>Started Project X</p>
-        </li>
-        
-        <!-- Trending List Item 3 -->
-        <li>
-            
-            <h4>
-                <img src="img/person-2.avif" alt="Person 3" aria-label="Person 3" />
-                <span class="uname">Sarah</span>
-            </h4>
-            <p>Shared a new article</p>
-        </li>
-    </ul>
-</section>
-
-
-            <!-- News Section -->
-            <!-- <section class="trending">
+            <section class="trending">
                 <h2>Trending</h2>
                 <ul>
-                    <li>Moha completed Task A</li>
-                    <li>Jude started Project X</li>
-                    <li>Sarah shared a new article</li>
+                    <!-- Trending List Item 1 -->
+                    <li>
+                        
+                        <h4>
+                            <img src="img/person-3.jpg" alt="Person 1" aria-label="Person 1" />
+                            <span class="uname">Moha</span>
+                        </h4>
+                        <p>Completed Task A</p>
+                    </li>
+                    
+                    <!-- Trending List Item 2 -->
+                    <li>
+                        
+                        <h4>
+                            <img src="img/person-1.avif" alt="Person 2" aria-label="Person 2" />
+                            <span class="uname">Jude</span>
+                        </h4>
+                        <p>Started Project X</p>
+                    </li>
+                    
+                    <!-- Trending List Item 3 -->
+                    <li>
+                        
+                        <h4>
+                            <img src="img/person-2.avif" alt="Person 3" aria-label="Person 3" />
+                            <span class="uname">Sarah</span>
+                        </h4>
+                        <p>Shared a new article</p>
+                    </li>
+
+                    <!-- Trending List Item 4 -->
+                    <li>
+                        
+                        <h4>
+                            <img src="img/person-1.avif" alt="Person 3" aria-label="Person 3" />
+                            <span class="uname">Mark</span>
+                        </h4>
+                        <p>Shared a new article</p>
+                    </li>
                 </ul>
-            </section> -->
+            </section>
+
+
         </section>
         
         
 
       </main>
     </div>
+
+    <!-- JavaScript -->
+     <!-- JavaScript for Dynamic Calendar Generation -->
+<script>
+    // Random Event and Job Generator
+    const events = [
+        { title: "Meeting with Client", description: "Discuss the project scope and deadlines." },
+        { title: "Team Sync-up", description: "Review the progress of current tasks and issues." },
+        { title: "Product Launch", description: "Prepare for the product launch, final touches." },
+      //  { title: "Job Interview", description: "Interview for the new software engineering position." },
+        { title: "Team Building Event", description: "Fun team-building activities and games." },
+        { title: "Tech Conference", description: "Attend a conference on emerging technologies." },
+        { title: "Workshop on Web Development", description: "Learn the latest trends in web technologies." },
+        { title: "Performance Review", description: "Yearly performance evaluation with the manager." }
+    ];
+    
+    // Generate random date in a specified range
+    function getRandomDate() {
+        const start = new Date();
+        const end = new Date();
+        end.setMonth(end.getMonth() + 1); // Random dates within the next 3 months
+    
+        const randomDate = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+        const day = randomDate.getDate().toString().padStart(2, '0');
+        const month = randomDate.toLocaleString('default', { month: 'short' });
+    
+        return { day, month };
+    }
+    
+    // Create a calendar card dynamically
+    function generateCalendarCard() {
+        const { day, month } = getRandomDate();
+        const randomEvent = events[Math.floor(Math.random() * events.length)];
+    
+        const calendarCard = document.createElement("div");
+        calendarCard.classList.add("calender-card");
+    
+        const calendarDate = document.createElement("div");
+        calendarDate.classList.add("calender-date");
+        calendarDate.innerHTML = `<span>${day}</span><span>${month}</span>`;
+    
+        const calendarEvent = document.createElement("div");
+        calendarEvent.classList.add("calender-event");
+        calendarEvent.innerHTML = `<h4>${randomEvent.title}</h4><p>${randomEvent.description}</p>`;
+    
+        // Create the bookmark toggle
+        const bookmarkToggle = document.createElement("button");
+        bookmarkToggle.textContent = "Bookmark Event";
+        bookmarkToggle.classList.add("bookmark-toggle");
+    
+        bookmarkToggle.addEventListener('click', function() {
+            calendarCard.classList.toggle("selected");
+            if (calendarCard.classList.contains("selected")) {
+                calendarEvent.classList.add("bookmarked");
+                bookmarkToggle.textContent = "Booked!";
+            } else {
+                calendarEvent.classList.remove("bookmarked");
+                bookmarkToggle.textContent = "Bookmark Event";
+            }
+        });
+    
+        calendarCard.appendChild(calendarDate);
+        calendarCard.appendChild(calendarEvent);
+        calendarCard.appendChild(bookmarkToggle);
+    
+        document.getElementById("calender-grid").appendChild(calendarCard);
+    }
+    
+    // Generate a random number of calendar cards
+    function generateCalendar() {
+        const numOfCards = 5; // You can change this to any number of cards you'd like
+    
+        for (let i = 0; i < numOfCards; i++) {
+            generateCalendarCard();
+        }
+    }
+    
+    // Initialize Calendar Generation
+    window.onload = generateCalendar;
+    </script>
+        
 
     <script>
       // Dynamically generate project cards

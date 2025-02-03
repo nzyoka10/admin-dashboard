@@ -7,7 +7,7 @@ The Admin Dashboard project is a, responsive web application designed for managi
 - The dashboard provides key insights into projects, announcements, trending activities, and a smooth user experience for both desktop and mobile devices.
 
 <!-- preview live link -->
-Click to view: [Live preview](https://nzyoka10.github.io/admin-dashboard/)
+Click to view: [Live project](https://nzyoka10.github.io/admin-dashboard/)
 <!-- end preview live link -->
 
 <!-- screenshot -->

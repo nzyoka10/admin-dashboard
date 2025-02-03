@@ -7,7 +7,7 @@
 
 /* General Styles */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Montserrat", serif;
     font-size: 16px;
     line-height: 1.6;
     color: #2c3e50;
@@ -42,8 +42,10 @@ body {
 }
 
 .branding h2 {
-    font-size: 24px;
+    font-family: "Bebas Neue", serif;
+    font-size: 2rem;
     color: #ecf0f1;
+    letter-spacing: 2px;
 }
 
 .nav ul {
@@ -157,41 +159,43 @@ body {
     grid-area: main;
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 20px;
+    gap: 24px;
     padding: 30px;
 }
 
 /* Projects Section */
-.projects h3{
-    font-size: 20px;
+.projects h3 {
+    font-size: 22px;
     color: #2c3e50;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    font-weight: 600;
 }
 
 .projects {
     grid-column: span 1;
-    padding: 10px 0;
+    padding: 12px 0;
 }
 
+/* Project Grid */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
 }
 
-/* Project Card Style with Left Border */
+/* Project Card Style */
 .project-card {
-    background-color: #ffffff;
+    background: #ffffff;
     padding: 20px;
     text-align: center;
-    border-radius: 10px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    border-left: 8px solid #2f3b48; /* Left border color */
+    border-left: 10px solid #2f3b48cf; /* Stylish Left Border */
     position: relative;
     overflow: hidden;
 }
@@ -199,29 +203,31 @@ body {
 /* Project Card Hover Effects */
 .project-card:hover {
     cursor: pointer;
-    transform: translateY(-2px);
-    box-shadow: 0px 10px 20px #2c3e508f;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Project Info (Hidden by Default) */
+/* Project Info (Overlay on Hover) */
 .project-info {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
-    background-color: rgba(47, 59, 72, 0.647);
+    background: rgba(47, 59, 72, 0.75);
     padding: 20px;
     text-align: center;
-    width: 100%;
+    width: 90%;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease;
+    border-radius: 8px;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .project-info h3 {
     font-size: 20px;
     margin-bottom: 10px;
+    font-weight: 600;
 }
 
 .project-info p {
@@ -232,10 +238,11 @@ body {
 .project-card:hover .project-info {
     opacity: 1;
     visibility: visible;
+    transform: translate(-50%, -50%) scale(1.05);
 }
 
 .project-card:hover .project-image img {
-    opacity: 0.6;
+    opacity: 0.4;
 }
 
 /* Project Image */
@@ -243,20 +250,90 @@ body {
     width: 100%;
     height: auto;
     border-radius: 10px;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease-in-out;
 }
 
+/* Project Text */
 .project-card h3 {
-    font-size: 20px;
+    font-family: "Bebas Neue", serif;
+    font-size: 24px;
     font-weight: 600;
-    color: #f7fbff;
+    color: #fcfcfc;
+    margin-top: 10px;
 }
 
 .project-card p {
     font-size: 14px;
-    color: #f6ddca;
-    margin: 10px 0;
+    text-align: start;
+    color: #e5eff0;
+    margin: 8px 0;
 }
+
+/* Project Actions */
+.project-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 2px solid #2c3e50;
+}
+
+/* General Button Styling */
+.icon-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border: none;
+    background: transparent;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.icon-btn:hover {
+    background: #2f3b48;
+    color: #fff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Like Button */
+.icon-btn .mdi-heart-outline {
+    color: #e74c3c;
+}
+
+/* View Button */
+.icon-btn .mdi-eye {
+    color: #3498db;
+}
+
+/* Share Button */
+.icon-btn .mdi-share-variant {
+    color: #27ae60;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .project-actions {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .icon-btn {
+        flex: 1;
+        text-align: center;
+    }
+}
+
 
 /* Announcements & Trending Sections */
 .announcements, .trending {

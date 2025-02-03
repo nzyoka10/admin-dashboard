@@ -4,51 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Poppins:wght@100..900&display=swap" rel="stylesheet">
 
     <!-- Material Design Icons CDN -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css"/>
 
-    <!-- FontAwesome (if you need it) -->
-    <script
-      src="https://kit.fontawesome.com/a076d05399.js"
-      crossorigin="anonymous"
-    ></script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <div class="container">
       <!-- Sidebar -->
       <aside class="sidebar">
         <div class="branding">
-          <h2>
-            <span class="mdi mdi-view-dashboard"></span>
-            Dashboard
-          </h2>
+          <h2><span class="mdi mdi-view-dashboard"></span> Dashboard</h2>
         </div>
         <nav class="nav">
           <ul>
-            <li>
-              <a href="./index.html"><span class="mdi mdi-home"></span> Home</a>
-            </li>
-            <li>
-              <a href="#"><span class="mdi mdi-briefcase"></span> Projects</a>
-            </li>
-            <li>
-              <a href="#"><span class="mdi mdi-message-badge"></span> Announcements</a>
-            </li>
-            <li>
-              <a href="#"><span class="mdi mdi-trending-up"></span> Trending</a>
-            </li>
-            <li>
-              <a href="#"><span class="mdi mdi-cog"></span> Settings</a>
-            </li>
+            <li><a href="./index.html"><span class="mdi mdi-home"></span> Home</a></li>
+            <li><a href="#projects"><span class="mdi mdi-briefcase"></span> Projects</a></li>
+            <li><a href="#announcements"><span class="mdi mdi-message-badge"></span> Announcements</a></li>
+            <li><a href="#trending"><span class="mdi mdi-trending-up"></span> Trending</a></li>
+            <li><a href="#settings"><span class="mdi mdi-cog"></span> Settings</a></li>
+            <li><a href="#logout"><span class="mdi mdi-logout"></span> Logout</a></li>
           </ul>
         </nav>
       </aside>
@@ -61,21 +43,11 @@
             <input type="text" placeholder="Write your search..." />
           </div>
           <div class="user-info">
-            <button class="btn btn-sm icon-btn">
-              <span class="mdi mdi-pen-plus"></span>
-            </button>
-            <button class="btn btn-sm icon-btn">
-              <span class="mdi mdi-cloud-upload"></span>
-            </button>
-            <button class="btn btn-sm icon-btn">
-              <span class="mdi mdi-share-variant"></span>
-            </button>
-            <button class="btn btn-sm icon-btn">
-              <span class="mdi mdi-bell-ring"></span>
-            </button>
-            <button class="btn btn-sm icon-btn">
-              <i class="fas fa-cog"></i>
-            </button>
+            <button class="btn btn-sm icon-btn"><span class="mdi mdi-pen-plus"></span></button>
+            <button class="btn btn-sm icon-btn"><span class="mdi mdi-cloud-upload"></span></button>
+            <button class="btn btn-sm icon-btn"><span class="mdi mdi-share-variant"></span></button>
+            <button class="btn btn-sm icon-btn"><span class="mdi mdi-bell-ring"></span></button>
+            <!-- <button class="btn btn-sm icon-btn"><span class="mdi mdi-cog"></span></button> -->
             <img src="img/avatar.avif" alt="User Avatar" />
             <span>Nzyoka</span>
           </div>
@@ -84,61 +56,42 @@
 
       <!-- Main Content -->
       <main class="main-content">
-        
-       <!-- projects -->
         <!-- Projects Section -->
-<section class="projects">
-    <h3>My Projects</h3>
-  
-    <!-- Project grid container -->
-    <div class="project-grid">
-        <!-- Project card: 1 -->
-        <div class="project-card">
-            <div class="project-image">
-                <img src="img/odin.png" alt="Project 1">
-            </div>
-            <div class="project-info">
-                <h3>Project 1</h3>
-                <p>Project description goes here.</p>
-            </div>
-        </div>
-
-        <!-- Project card: 2 -->
-        <div class="project-card">
-            <div class="project-image">
-                <img src="img/dash.png" alt="Project 2">
-            </div>
-            <div class="project-info">
-                <h3>Project 2</h3>
-                <p>Another project description.</p>
-            </div>
-        </div>
-
-        <!-- Project card: 3 -->
-        <div class="project-card">
-            <div class="project-image">
-                <img src="img/odin.png" alt="Project 3">
-            </div>
-            <div class="project-info">
-                <h3>Project 3</h3>
-                <p>Yet another project description.</p>
-            </div>
-        </div>
-
-        <!-- Project card: 4 -->
-        <div class="project-card">
-            <div class="project-image">
-                <img src="img/dash.png" alt="Project 4">
-            </div>
-            <div class="project-info">
-                <h3>Project 4</h3>
-                <p>Description of project number four.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-          
+        <section class="projects">
+          <h3>My Projects</h3>
+          <div class="project-grid">
+            <!-- Project Cards -->
+            <script>
+              const projects = [
+                { name: "Car Website", img: "img/Car.png" },
+                { name: "School Website", img: "img/School.png" },
+                { name: "Portfolio Website", img: "img/Portfolio.png" },
+                { name: "Lend Website", img: "img/Lend.png" },
+                { name: "Project 5", img: "img/dash.png" },
+                { name: "Project 6", img: "img/dash.png" }
+              ];
+              
+              document.write(projects.map(p => `
+                <div class="project-card">
+                  <div class="project-image">
+                    <img src="${p.img}" alt="${p.name}">
+                  </div>
+                  <div class="project-info">
+                    <h3>${p.name}</h3>
+                    <!-- <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus eget sapien.
+                    </p> -->
+                  </div>
+                  <div class="project-actions">
+                    <button class="btn btn-sm icon-btn"><span class="mdi mdi-heart-outline"></span> <span class="likes">1.4K</span></button>
+                    <button class="btn btn-sm icon-btn"><span class="mdi mdi-eye"></span> <span class="views">2.4K</span></button>
+                    <button class="btn btn-sm icon-btn"><span class="mdi mdi-share-variant"></span> <span class="shares">1.2K</span></button>
+                  </div>
+                </div>
+              `).join(''));
+            </script>
+          </div>
+        </section>
 
         <!-- Announcements Section -->
         <section class="announcements">
@@ -150,16 +103,15 @@
           </ul>
         </section>
 
-       <!-- Trending Section -->
+        <!-- Trending Section -->
         <section class="trending">
-            <h2>Trending</h2>
-            <ul>
+          <h2>Trending</h2>
+          <ul>
             <li>Moha completed Task A</li>
             <li>Jude started Project X</li>
             <li>Sarah shared a new article</li>
-            </ul>
+          </ul>
         </section>
-        
       </main>
     </div>
   </body>

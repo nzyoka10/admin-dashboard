@@ -49,10 +49,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .branding h2 {
-    font-family: "Bebas Neue", serif;
-    font-size: 2rem;
-    color: #ecf0f1;
-    letter-spacing: 2px;
+    color: #f9feff;
+    font-size: 24px;
 }
 
 .nav ul {
@@ -141,11 +139,17 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     gap: 15px;
+    cursor: pointer;
 }
 
 .user-info img {
     border-radius: 50%;
     width: 30px;
+}
+
+.user-info span.uname {
+    font-weight: 600;
+    color: #2f3b48;
 }
 
 .icon-btn {
@@ -221,13 +225,13 @@ h1, h2, h3, h4, h5, h6 {
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
-    background: rgba(47, 59, 72, 0.75);
+    background: rgba(47, 59, 72, 0.659);
     padding: 20px;
     text-align: center;
-    width: 90%;
+    width: 100%;
     opacity: 0;
     visibility: hidden;
-    border-radius: 8px;
+    border-radius: 4px;
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
@@ -256,8 +260,14 @@ h1, h2, h3, h4, h5, h6 {
 .project-image img {
     width: 100%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 0px;
+    object-fit: cover;
+
+    /* Stylish Overlay */
+    position: relative;
+    overflow: hidden;
     transition: opacity 0.3s ease-in-out;
+    
 }
 
 /* Project Text */

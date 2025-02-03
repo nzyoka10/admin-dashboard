@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Admin Dashboard - Manage your projects and announcements." />
+    <meta name="keywords" content="admin, dashboard, projects, announcements, trending" />
+    <meta name="author" content="Eric Nzyoka" />
     <title>Admin Dashboard</title>
     
     <!-- Fonts -->
@@ -25,12 +28,12 @@
         </div>
         <nav class="nav">
           <ul>
-            <li><a href="./index.html"><span class="mdi mdi-home"></span> Home</a></li>
-            <li><a href="#projects"><span class="mdi mdi-briefcase"></span> Projects</a></li>
-            <li><a href="#announcements"><span class="mdi mdi-message-badge"></span> Announcements</a></li>
-            <li><a href="#trending"><span class="mdi mdi-trending-up"></span> Trending</a></li>
-            <li><a href="#settings"><span class="mdi mdi-cog"></span> Settings</a></li>
-            <li><a href="#logout"><span class="mdi mdi-logout"></span> Logout</a></li>
+            <li><a href="./index.html"><span class="mdi mdi-home" aria-label="Home"></span> Home</a></li>
+            <li><a href="#projects"><span class="mdi mdi-briefcase" aria-label="Projects"></span> Projects</a></li>
+            <li><a href="#announcements"><span class="mdi mdi-message-badge" aria-label="Announcements"></span> Announcements</a></li>
+            <li><a href="#trending"><span class="mdi mdi-trending-up" aria-label="Trending"></span> Trending</a></li>
+            <li><a href="#settings"><span class="mdi mdi-cog" aria-label="Settings"></span> Settings</a></li>
+            <li><a href="#logout"><span class="mdi mdi-logout" aria-label="Logout"></span> Logout</a></li>
           </ul>
         </nav>
       </aside>
@@ -39,17 +42,16 @@
       <header class="header">
         <div class="top-header">
           <div class="search-bar">
-            <span class="mdi mdi-magnify"></span>
-            <input type="text" placeholder="Write your search..." />
+            <span class="mdi mdi-magnify" aria-hidden="true"></span>
+            <input type="text" placeholder="Write your search..." aria-label="Search" />
           </div>
           <div class="user-info">
-            <button class="btn btn-sm icon-btn"><span class="mdi mdi-pen-plus"></span></button>
-            <button class="btn btn-sm icon-btn"><span class="mdi mdi-cloud-upload"></span></button>
-            <button class="btn btn-sm icon-btn"><span class="mdi mdi-share-variant"></span></button>
-            <button class="btn btn-sm icon-btn"><span class="mdi mdi-bell-ring"></span></button>
-            <!-- <button class="btn btn-sm icon-btn"><span class="mdi mdi-cog"></span></button> -->
-            <img src="img/avatar.avif" alt="User Avatar" />
-            <span>Nzyoka</span>
+            <button class="btn btn-sm icon-btn" aria-label="Add Post"><span class="mdi mdi-pen-plus"></span></button>
+            <button class="btn btn-sm icon-btn" aria-label="Upload"><span class="mdi mdi-cloud-upload"></span></button>
+            <button class="btn btn-sm icon-btn" aria-label="Share"><span class="mdi mdi-share-variant"></span></button>
+            <button class="btn btn-sm icon-btn" aria-label="Notifications"><span class="mdi mdi-bell-ring"></span></button>
+            <img src="img/avatar.avif" alt="User Avatar" aria-label="User Avatar" />
+            <span class="uname">Nzyoka</span>
           </div>
         </div>
       </header>
@@ -59,37 +61,8 @@
         <!-- Projects Section -->
         <section class="projects">
           <h3>My Projects</h3>
-          <div class="project-grid">
-            <!-- Project Cards -->
-            <script>
-              const projects = [
-                { name: "Car Website", img: "img/Car.png" },
-                { name: "School Website", img: "img/School.png" },
-                { name: "Portfolio Website", img: "img/Portfolio.png" },
-                { name: "Lend Website", img: "img/Lend.png" },
-                { name: "Project 5", img: "img/dash.png" },
-                { name: "Project 6", img: "img/dash.png" }
-              ];
-              
-              document.write(projects.map(p => `
-                <div class="project-card">
-                  <div class="project-image">
-                    <img src="${p.img}" alt="${p.name}">
-                  </div>
-                  <div class="project-info">
-                    <h3>${p.name}</h3>
-                    <!-- <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus eget sapien.
-                    </p> -->
-                  </div>
-                  <div class="project-actions">
-                    <button class="btn btn-sm icon-btn"><span class="mdi mdi-heart-outline"></span> <span class="likes">1.4K</span></button>
-                    <button class="btn btn-sm icon-btn"><span class="mdi mdi-eye"></span> <span class="views">2.4K</span></button>
-                    <button class="btn btn-sm icon-btn"><span class="mdi mdi-share-variant"></span> <span class="shares">1.2K</span></button>
-                  </div>
-                </div>
-              `).join(''));
-            </script>
+          <div class="project-grid" id="projects-grid">
+            <!-- Project Cards will be injected here via JavaScript -->
           </div>
         </section>
 
@@ -114,5 +87,39 @@
         </section>
       </main>
     </div>
+
+    <script>
+      // Dynamically generate project cards
+      const projects = [
+        { name: "P2P Lending", img: "img/Lend.png" },
+        { name: "Car Website", img: "img/Car.png" },
+        { name: "School Website", img: "img/School.png" },
+        { name: "Water Billing", img: "img/Billing.png" },
+        { name: "Portfolio Website", img: "img/Portfolio.png" },
+        { name: "E-Commerce Dashboard", img: "img/Store.png" }
+      ];
+
+      const projectsGrid = document.getElementById('projects-grid');
+      projects.forEach(project => {
+        const projectCard = document.createElement('div');
+        projectCard.classList.add('project-card');
+        
+        projectCard.innerHTML = `
+          <div class="project-image">
+            <img src="${project.img}" alt="${project.name}" />
+          </div>
+          <div class="project-info">
+            <h3>${project.name}</h3>
+          </div>
+          <div class="project-actions">
+            <button class="btn btn-sm icon-btn" aria-label="Like"><span class="mdi mdi-heart-outline"></span> <span class="likes">1.4K</span></button>
+            <button class="btn btn-sm icon-btn" aria-label="View"><span class="mdi mdi-eye"></span> <span class="views">2.4K</span></button>
+            <button class="btn btn-sm icon-btn" aria-label="Share"><span class="mdi mdi-share-variant"></span> <span class="shares">1.2K</span></button>
+          </div>
+        `;
+        
+        projectsGrid.appendChild(projectCard);
+      });
+    </script>
   </body>
 </html>

@@ -224,7 +224,7 @@ h1, h2, h3, h4, h5, h6 {
     color: #2c3e50;
     margin-bottom: 10px;
     font-weight: 600;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .calender h3 small {
@@ -350,6 +350,11 @@ h1, h2, h3, h4, h5, h6 {
     border-left: 12px solid #2f3b48cf; /* Stylish Left Border */
     position: relative;
     overflow: hidden;
+}
+
+.projects h3 small {
+    font-size: 12px;  /* Reduced small text font size */
+    color: #7f8c8d;
 }
 
 /* Project Card Hover Effects */
